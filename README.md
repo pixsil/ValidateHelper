@@ -35,8 +35,18 @@ input, varchar, string, password, text, textarea, array, checkbox, integer, numb
 All of the following name conventions are allowed. By default all the fields are required, you can override this by adding 'sometimes' or 'nullable' to the extra validation array.
 
 ```php
+
+// without additional requirements
 $data = $request->validate([
-    'name' => validate('string'),  // required
+    'description' => validate('string'),
+    'price' => validate('integer'),
+    'amount' => validate('integer'),
+    'size' => validate('integer'),
+    'additional_information' => validate('text'),
+]);
+
+// with additional requirements
+$data = $request->validate([
     'email' => validate('email', 'min:21|max:222'),  // required
     'phone' => validate('string', ['min:21','max:222']), // required
     'company_name' => validate('string', 'sometimes'), // sometimes
