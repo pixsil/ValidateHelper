@@ -55,6 +55,18 @@ $data = $request->validate([
 ]);
 ```
 
+Or use the shorthand notation with sometimes() and required():
+```php
+$data = $request->validate([
+    'description' => required('string'),
+    'price' => sometimes('integer'),
+    'amount' => sometimes('integer'),
+    'size' => sometimes('integer'),
+    'additional_information' => required('text'),
+]);
+
+```
+
  You can use custom validation with the function like this:
  ```php
 $data = $request->validate([
