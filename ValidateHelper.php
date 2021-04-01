@@ -1,10 +1,9 @@
 <?php
 
-// version 10
+// version 10.1
 
 if (!function_exists('validate')) {
-    function validate($type, $other_validation = [])
-    {
+    function validate($type, $other_validation = []) {
         // init (works for array or string)
         $validation_arr = is_string($other_validation) ? explode('|', $other_validation) : $other_validation;
 
@@ -45,7 +44,6 @@ if (!function_exists('validate')) {
                 $extra_arr['string'] = 'string';
                 $extra_arr['max'] = 'max:255';
                 break;
-
 
             // password
             case 'password':
@@ -111,12 +109,12 @@ if (!function_exists('validate')) {
 
         return $validation_arr;
     }
-    
+
     //
     if (!function_exists('sometimes')) {
         function sometimes($type, $other_validation = [])
         {
-            return validate($type, ['sometimes']);
+            return validate($type, array_merge(['sometimes'], $other_validation));
         }
     }
 
@@ -124,10 +122,10 @@ if (!function_exists('validate')) {
     if (!function_exists('required')) {
         function required($type, $other_validation = [])
         {
-            return validate($type);
+            return validate($type, $other_validation);
         }
     }
-    
+
     // version 1
     if (!function_exists('print_validation')) {
         function print_validation($validation_arr) {
