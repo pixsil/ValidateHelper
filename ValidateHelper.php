@@ -112,6 +112,22 @@ if (!function_exists('validate')) {
         return $validation_arr;
     }
     
+    //
+    if (!function_exists('sometimes')) {
+        function sometimes($type, $other_validation = [])
+        {
+            return validate($type, ['sometimes']);
+        }
+    }
+
+    //
+    if (!function_exists('required')) {
+        function sometimes($type, $other_validation = [])
+        {
+            return validate($type);
+        }
+    }
+    
     // version 1
     if (!function_exists('print_validation')) {
         function print_validation($validation_arr) {
