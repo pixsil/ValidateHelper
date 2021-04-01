@@ -122,7 +122,7 @@ if (!function_exists('validate')) {
 
     //
     if (!function_exists('required')) {
-        function sometimes($type, $other_validation = [])
+        function required($type, $other_validation = [])
         {
             return validate($type);
         }
