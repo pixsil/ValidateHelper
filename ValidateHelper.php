@@ -111,4 +111,33 @@ if (!function_exists('validate')) {
 
         return $validation_arr;
     }
+    
+    // version 1
+    if (!function_exists('print_validation')) {
+        function print_validation($validation_arr) {
+
+            //
+            $html = '';
+
+            $validation_html = '';
+            foreach ($validation_arr as $key => $validation) {
+
+                //
+                $validate_part_html = implode('|', $validation);
+
+                //
+                $validation_html .= "'".$key ."' => '". $validate_part_html ."'\r\n";
+            }
+
+            //
+            $html .= '
+                // data validate
+                $data = $request->validate([
+                    '. $validation_html .'
+                ]);
+            ';
+
+            var_dump($html); exit;
+        }
+    }
 }
