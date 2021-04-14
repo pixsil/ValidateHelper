@@ -2,7 +2,7 @@
 
 ## What is it?
 
-This is a Laravel helper functions that allows easily to add some default validation for the type of database field next to your own validation. For example a varchar field get automaticly an max:255 validation applied. This is a great helper for reducing database errors.
+This is a Laravel helper functions that allows easily to add some default validation for the type of database field next to your own validation. For example a varchar field get automatically an max:255 validation applied. This is a great helper for reducing database errors.
 
 This helper works on all of the following field or database types:
 input, varchar, string, password, text, textarea, array, checkbox, integer, number, int, boolean, bool, email, image, file, upload
