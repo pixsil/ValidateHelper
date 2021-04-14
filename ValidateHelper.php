@@ -65,12 +65,28 @@ if (!function_exists('validate')) {
                 $extra_arr['array'] = 'array';
                 break;
 
-            // textarea
+            // integer
             case 'integer':
             case 'number':
             case 'int':
                 $extra_arr['integer'] = 'integer';
                 $extra_arr['max'] = 'max:2147483647';
+                break;
+
+            // float or decimal
+            case 'float':
+            case 'decimal':
+                $extra_arr['integer'] = 'integer';
+                $extra_arr['max'] = 'max:2147483647';
+                $extra_arr['regex'] = 'regex:/^\d*\.\d*?$/';
+                break;
+
+            // two decimals
+            case 'price':
+            case 'double':
+                $extra_arr['integer'] = 'integer';
+                $extra_arr['max'] = 'max:2147483647';
+                $extra_arr['regex'] = 'regex:/^\d*(\.\d{2})?$/';
                 break;
 
             // boolean
