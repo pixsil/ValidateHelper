@@ -76,7 +76,6 @@ if (!function_exists('validate')) {
             // float or decimal
             case 'float':
             case 'decimal':
-                $extra_arr['integer'] = 'integer';
                 $extra_arr['max'] = 'max:2147483647';
                 $extra_arr['regex'] = 'regex:/^\d*\.\d*?$/';
                 break;
@@ -84,9 +83,8 @@ if (!function_exists('validate')) {
             // two decimals
             case 'price':
             case 'double':
-                $extra_arr['integer'] = 'integer';
                 $extra_arr['max'] = 'max:2147483647';
-                $extra_arr['regex'] = 'regex:/^\d*(\.\d{2})?$/';
+                $extra_arr['regex'] = 'regex:/^\d*(\.\d{1,2})?$/';
                 break;
 
             // boolean
