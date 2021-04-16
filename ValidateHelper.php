@@ -77,7 +77,7 @@ if (!function_exists('validate')) {
             case 'float':
             case 'decimal':
                 $extra_arr['max'] = 'max:2147483647';
-                $extra_arr['regex'] = 'regex:/^\d*\.\d*?$/';
+                $extra_arr['regex'] = 'regex:/^\d*(\.\d*)?$/';
                 break;
 
             // two decimals
