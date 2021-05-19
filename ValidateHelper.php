@@ -139,6 +139,14 @@ if (!function_exists('validate')) {
             return validate($type, $other_validation);
         }
     }
+    
+    //
+    if (!function_exists('nullable')) {
+        function nullable($type, $other_validation = [])
+        {
+            return validate($type, array_merge(['nullable'], $other_validation));
+        }
+    }
 
     // version 1
     if (!function_exists('print_validation')) {
