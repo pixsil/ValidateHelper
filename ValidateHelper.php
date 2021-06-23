@@ -1,6 +1,6 @@
 <?php
 
-// version 10.1
+// version 11
 
 if (!function_exists('validate')) {
     function validate($type, $other_validation = []) {
@@ -128,6 +128,8 @@ if (!function_exists('validate')) {
     if (!function_exists('sometimes')) {
         function sometimes($type, $other_validation = [])
         {
+            $other_validation = is_array($other_validation) ? $other_validation : [$other_validation];
+            
             return validate($type, array_merge(['sometimes'], $other_validation));
         }
     }
@@ -144,6 +146,8 @@ if (!function_exists('validate')) {
     if (!function_exists('nullable')) {
         function nullable($type, $other_validation = [])
         {
+            $other_validation = is_array($other_validation) ? $other_validation : [$other_validation];
+            
             return validate($type, array_merge(['nullable'], $other_validation));
         }
     }
