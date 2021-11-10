@@ -1,6 +1,6 @@
 <?php
 
-// version 11
+// version 12
 
 if (!function_exists('validate')) {
     function validate($type, $other_validation = []) {
@@ -77,14 +77,36 @@ if (!function_exists('validate')) {
             case 'float':
             case 'decimal':
                 $extra_arr['max'] = 'max:2147483647';
-                $extra_arr['regex'] = 'regex:/^\d*(\.\d*)?$/';
+                $extra_arr['regex'] = 'regex:/^\d+([.]\d+)?$/';
+                break;
+
+            // float or decimal (can below zero)
+            case 'float_signed':
+            case 'decimal_signed':
+                $extra_arr['max'] = 'max:2147483647';
+                $extra_arr['regex'] = 'regex:/^[-]?\d+([.]\d+)?$/';
+                break;
+
+            // float or decimal
+            // allows both comma and dot (must replace before saving)
+            case 'eu_float':
+            case 'eu_decimal':
+                $extra_arr['max'] = 'max:2147483647';
+                $extra_arr['regex'] = 'regex:/^\d+([.,]\d+)?$/';
                 break;
 
             // two decimals
             case 'price':
             case 'double':
                 $extra_arr['max'] = 'max:2147483647';
-                $extra_arr['regex'] = 'regex:/^\d*(\.\d{1,2})?$/';
+                $extra_arr['regex'] = 'regex:/^\d*([.]\d{1,2})?$/';
+                break;
+
+            // two decimals
+            case 'eu_price':
+            case 'eu_double':
+                $extra_arr['max'] = 'max:2147483647';
+                $extra_arr['regex'] = 'regex:/^\d*([.,]\d{1,2})?$/';
                 break;
 
             // boolean
@@ -129,7 +151,7 @@ if (!function_exists('validate')) {
         function sometimes($type, $other_validation = [])
         {
             $other_validation = is_array($other_validation) ? $other_validation : [$other_validation];
-            
+
             return validate($type, array_merge(['sometimes'], $other_validation));
         }
     }
@@ -141,13 +163,13 @@ if (!function_exists('validate')) {
             return validate($type, $other_validation);
         }
     }
-    
+
     //
     if (!function_exists('nullable')) {
         function nullable($type, $other_validation = [])
         {
             $other_validation = is_array($other_validation) ? $other_validation : [$other_validation];
-            
+
             return validate($type, array_merge(['nullable'], $other_validation));
         }
     }
