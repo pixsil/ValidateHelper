@@ -26,13 +26,13 @@ if (!function_exists('validate')) {
         }
 
         // sometimes of required
-        if (in_array('nullable', $validation_arr)) {
-            $extra_arr = ['nullable' => 'nullable'];
-        } elseif (in_array('sometimes', $validation_arr)) {
-            $extra_arr = ['sometimes' => 'sometimes'];
-        } else {
-            $extra_arr = ['required' => 'required'];
-        }
+        // if (in_array('nullable', $validation_arr)) {
+        //     $extra_arr = ['nullable' => 'nullable'];
+        // } elseif (in_array('sometimes', $validation_arr)) {
+        //     $extra_arr = ['sometimes' => 'sometimes'];
+        // } else {
+        //     $extra_arr = ['required' => 'required'];
+        // }
 
         // add
         switch ($type) {
