@@ -74,6 +74,10 @@ $data = $request->validate([
 ]);
 ```
 
+**How to do a required_if**
+
+For a required if you can use nullable() or add nullable to the other validation array. It basiclly says that all values are allowed only not when an other field got a specific condition.
+
 ## Debug
 
 I you would like to print the validation that is rendered you can use the print_validation() helper. Its all in there and ready to use!
