@@ -1,6 +1,6 @@
 <?php
 
-// version 12
+// version 12.1
 
 if (!function_exists('validate')) {
     function validate($type, $other_validation = []) {
@@ -121,7 +121,7 @@ if (!function_exists('validate')) {
                 $extra_arr['max'] = 'max:255';
                 break;
 
-            // email
+            // image
             case 'image':
                 // size in kb
                 $extra_arr['image'] = 'image';
