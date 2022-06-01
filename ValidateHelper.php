@@ -1,6 +1,6 @@
 <?php
 
-// version 12.1
+// version 13
 
 if (!function_exists('validate')) {
     function validate($type, $other_validation = []) {
@@ -160,7 +160,7 @@ if (!function_exists('validate')) {
     if (!function_exists('required')) {
         function required($type, $other_validation = [])
         {
-            return validate($type, $other_validation);
+            return validate($type, array_merge(['required'], $other_validation));
         }
     }
 
