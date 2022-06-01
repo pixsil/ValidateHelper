@@ -46,7 +46,7 @@ $data = $request->validate([
 
 ```
 
- Or you can use the validate function if you dont want to apply sometimes or required. This can be done with the function as follows:
+ Or you can use the validate function if you dont want to apply sometimes() or required(). This can be done with the function as follows:
 
 ```php
 // without additional requirements
