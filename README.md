@@ -34,8 +34,21 @@ input, varchar, string, password, text, textarea, array, checkbox, integer, numb
 
 All of the following name conventions are allowed. By default all the fields are required, you can override this by adding 'sometimes' or 'nullable' to the extra validation array.
 
+Best practice is using the shorthand notations sometimes() and required():
 ```php
+$data = $request->validate([
+    'description' => required('string'),
+    'price' => sometimes('integer'),
+    'amount' => sometimes('integer'),
+    'size' => sometimes('integer'),
+    'additional_information' => required('text'),
+]);
 
+```
+
+ Or you can use the validate function if you dont want to apply sometimes or required. This can be done with the function as follows:
+
+```php
 // without additional requirements
 $data = $request->validate([
     'description' => validate('string'),
@@ -55,19 +68,10 @@ $data = $request->validate([
 ]);
 ```
 
-Or use the shorthand notation with sometimes() and required():
-```php
-$data = $request->validate([
-    'description' => required('string'),
-    'price' => sometimes('integer'),
-    'amount' => sometimes('integer'),
-    'size' => sometimes('integer'),
-    'additional_information' => required('text'),
-]);
+**Apply custom validate classes**
 
-```
+Use the validate function with custom validate classes
 
- You can use custom validation with the function like this:
  ```php
 $data = $request->validate([
     'relation_arr' => array_merge(validate('array'), [new PivotTableArray])
