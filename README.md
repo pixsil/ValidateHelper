@@ -32,9 +32,12 @@ This helper functions add the the validate() function to your project. The valid
 **Possible values:**
 input, varchar, string, password, text, textarea, array, checkbox, integer, number, int, boolean, bool, email, image, file, upload
 
-All of the following name conventions are allowed. By default all the fields are required, you can override this by adding 'sometimes' or 'nullable' to the extra validation array.
+You can use ```required()```, ```nullable()``` or ```sometimes()```. Where 'nullable' allows values to be null and sometimes only check the validation if the value is in the post.
 
-Best practice is using the shorthand notations sometimes() and required():
+Keep a note on Laravel's empty to null converter; https://laravel.com/docs/9.x/validation#a-note-on-optional-fields.
+
+All of the following name conventions are allowed. 
+
 ```php
 $data = $request->validate([
     'description' => required('string'),
