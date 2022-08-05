@@ -1,6 +1,6 @@
 <?php
 
-// version 13
+// version 14 - changed integer to numeric
 
 if (!function_exists('validate')) {
     function validate($type, $other_validation = []) {
@@ -65,11 +65,17 @@ if (!function_exists('validate')) {
                 $extra_arr['array'] = 'array';
                 break;
 
-            // integer
+            // integer (whole numbers)
             case 'integer':
             case 'number':
             case 'int':
                 $extra_arr['integer'] = 'integer';
+                $extra_arr['max'] = 'max:2147483647';
+                break;
+
+            // numeric (numbers with floating point)
+            case 'numeric':
+                $extra_arr['numeric'] = 'numeric';
                 $extra_arr['max'] = 'max:2147483647';
                 break;
 
@@ -160,6 +166,8 @@ if (!function_exists('validate')) {
     if (!function_exists('required')) {
         function required($type, $other_validation = [])
         {
+            $other_validation = is_array($other_validation) ? $other_validation : [$other_validation];
+
             return validate($type, array_merge(['required'], $other_validation));
         }
     }
