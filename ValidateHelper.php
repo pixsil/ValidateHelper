@@ -1,5 +1,6 @@
 <?php
 
+// version 14.1 - add fallback for type
 // version 14 - changed integer to numeric
 
 if (!function_exists('validate')) {
@@ -147,7 +148,7 @@ if (!function_exists('validate')) {
         }
 
         // merge with already given array
-        $validation_arr = array_merge($extra_arr, $validation_arr);
+        $validation_arr = array_merge($extra_arr ?? [], $validation_arr);
 
         return $validation_arr;
     }
