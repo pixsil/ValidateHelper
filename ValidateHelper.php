@@ -1,5 +1,6 @@
 <?php
 
+// version 15 - fixed numbers max to max_digits
 // version 14.1 - add fallback for type
 // version 14 - changed integer to numeric
 
@@ -71,26 +72,26 @@ if (!function_exists('validate')) {
             case 'number':
             case 'int':
                 $extra_arr['integer'] = 'integer';
-                $extra_arr['max'] = 'max:2147483647';
+                $extra_arr['max'] = 'max_digits:2147483647';
                 break;
 
             // numeric (numbers with floating point)
             case 'numeric':
                 $extra_arr['numeric'] = 'numeric';
-                $extra_arr['max'] = 'max:2147483647';
+                $extra_arr['max'] = 'max_digits:2147483647';
                 break;
 
             // float or decimal
             case 'float':
             case 'decimal':
-                $extra_arr['max'] = 'max:2147483647';
+                $extra_arr['max'] = 'max_digits:2147483647';
                 $extra_arr['regex'] = 'regex:/^\d+([.]\d+)?$/';
                 break;
 
             // float or decimal (can below zero)
             case 'float_signed':
             case 'decimal_signed':
-                $extra_arr['max'] = 'max:2147483647';
+                $extra_arr['max'] = 'max_digits:2147483647';
                 $extra_arr['regex'] = 'regex:/^[-]?\d+([.]\d+)?$/';
                 break;
 
@@ -98,21 +99,21 @@ if (!function_exists('validate')) {
             // allows both comma and dot (must replace before saving)
             case 'eu_float':
             case 'eu_decimal':
-                $extra_arr['max'] = 'max:2147483647';
+                $extra_arr['max'] = 'max_digits:2147483647';
                 $extra_arr['regex'] = 'regex:/^\d+([.,]\d+)?$/';
                 break;
 
             // two decimals
             case 'price':
             case 'double':
-                $extra_arr['max'] = 'max:2147483647';
+                $extra_arr['max'] = 'max_digits:2147483647';
                 $extra_arr['regex'] = 'regex:/^\d*([.]\d{1,2})?$/';
                 break;
 
             // two decimals
             case 'eu_price':
             case 'eu_double':
-                $extra_arr['max'] = 'max:2147483647';
+                $extra_arr['max'] = 'max_digits:2147483647';
                 $extra_arr['regex'] = 'regex:/^\d*([.,]\d{1,2})?$/';
                 break;
 
