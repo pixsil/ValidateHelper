@@ -143,6 +143,11 @@ if (!function_exists('validate')) {
                 $extra_arr['file'] = 'file';
                 $extra_arr['max'] = 'max:5000';
                 break;
+                
+            // date
+            case 'date':
+                $extra_arr['array'] = 'date';
+                break;
 
             default:
                 break;
