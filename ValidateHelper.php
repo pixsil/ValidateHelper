@@ -58,7 +58,7 @@ if (!function_exists('validate')) {
             // textarea
             case 'text':
             case 'textarea':
-                $extra_arr['max'] = 'max:500';
+                $extra_arr['max'] = 'max:65535';
                 break;
 
             // checkbox or array
