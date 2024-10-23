@@ -1,12 +1,14 @@
 <?php
 
+// version 16.1 - line enters
 // version 16 - removed max_digits, just not working well (now with float, always triggers)
 // version 15 - fixed numbers max to max_digits
 // version 14.1 - add fallback for type
 // version 14 - changed integer to numeric
 
 if (!function_exists('validate')) {
-    function validate($type, $other_validation = []) {
+    function validate($type, $other_validation = [])
+    {
         // init (works for array or string)
         $validation_arr = is_string($other_validation) ? explode('|', $other_validation) : $other_validation;
 
@@ -185,8 +187,8 @@ if (!function_exists('validate')) {
 
     // version 1
     if (!function_exists('print_validation')) {
-        function print_validation($validation_arr) {
-
+        function print_validation($validation_arr)
+        {
             //
             $html = '';
 
